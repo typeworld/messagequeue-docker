@@ -1,11 +1,12 @@
 # https://hub.docker.com/repository/docker/typeworld/pyzmq-draft
 FROM typeworld/pyzmq-draft:1.0
 
-EXPOSE 5556/udp
+EXPOSE 80
 EXPOSE 5556
-EXPOSE 8080
+EXPOSE 5556/udp
 
-RUN pip install flask gunicorn
+RUN pip install flask gunicorn google-cloud-monitoring
+RUN apt-get update && apt-get install -y gcc python-dev iproute2 && pip install psutil
 
 COPY . /app
 WORKDIR /app

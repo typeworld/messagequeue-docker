@@ -2,6 +2,10 @@
 # python -u /app/server.py
 # gunicorn --config gunicorn_config.py app.wsgi:app
 
+# Monintoring
+python /app/monitoring.py &
+
+# Server
 gunicorn --config gunicorn_config.py pub:app
 
 # 18:35:53.476958 IP instance-1.us-central1-a.c.typeworld2.internal.47648 > 252.143.223.35.bc.googleusercontent.com.freeciv: UDP, length 8

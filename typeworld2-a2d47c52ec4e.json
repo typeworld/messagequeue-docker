@@ -1,0 +1,12 @@
+{
+  "type": "service_account",
+  "project_id": "typeworld2",
+  "private_key_id": "a2d47c52ec4e78175566f49adb24cea1c4848071",
+  "private_key": "-----BEGIN PRIVATE KEY-----\nMIIEvAIBADANBgkqhkiG9w0BAQEFAASCBKYwggSiAgEAAoIBAQDNLIobO8KI6WKS\nxqr/xaYoBqDEWIE8i0BPXtk1SA2BtzUWIDwZMiPaV3UKXe5p+MumDCKKTI+SBLy6\nvwpXkQalDUzvxPCp+74STWFtxKJgjtKQcRH2pEu/rgyTzJ8qY1Y2ujk9dZoPdLXd\nyuP3r8pf3JIPgK/ZFHmEZ3eLNS8wQ4+ihzmjQ/aRLqFYbaJ1o9FALDGuk+5a0+sx\nEAEHTXt2ejSpkCpqhXSEh7WEbhNxLSPvmmjaU5bmdfrJud9LBsxroBGbKIj6QgWk\nMHtZa1UqZPIkRLfp+sN4Xl8gnsIr+LkWPSi38yxLIyOUn7Ldhw94/wGRID1A9Cot\n0qSTiu/vAgMBAAECggEAOR06br1SeHFbbtdd96hKCh9aNn4ar8NlyhJxrZrao67f\n2MJtaGgkQd4RpyqhuR84dYcwQEZyuueVr/iJRPoKmvyaW657fh4leYvP4NIZj36C\nkBHhucJfkcK+HpCaCB8x+zcYwwqPMdk/3TdjAWqOj+PjRuyARxIjh5+T0A0kjy7n\nJDFaCzNpJ0KEtpSUWUINffurbWQEWX9AWvdk/i+juRaCZqADX+V4JAwor0Ek+Whi\na6lDyfHCNPrLm9z6yq0XU1lU+gl7ad7+Yi3L+hWVXXNVyF/KgeenpFZivxDT++De\nZSQedFIb8K+8OntUjMZ1P9sGgHiy/6UJ/5JwJhjZ6QKBgQD/Bhg46QJuJa2kN15S\nEz+CeLcDarmG2/+3+5goL/pxi9UD6hb8jwX4LUXKfewz6FuKE+vOsfWZkku8/mJv\nJnFDB+Qa3pLsmStLhpn49IrhsBfQLOF39SAipbcUu/Cm/qHIygW/6G3/ilzoOXbL\nlwEuF+5JVbddbGQoE6zFUz5QCQKBgQDN9Zh1TtaxOUeN+FrQ+PQr3bQuL+D5nx9/\n++r0kWf2WivmzWbWu0ZYY737c5j5bGmC2ChFUJyECx6NGJ3g5eVjU9q335TwIGv6\nLZUTa6dP14z/c2QUU7XyZno0Dex8iblUeY/asP3ps7xce8jGKFUIhKP93GEklZBF\n14tH9d1ONwKBgAj6KvId6bL86o7kUBKtkMfD/hVFtYA00Fymo6WOgs9qb7YykFqV\nok0pMtK8+gqdvFMw/lUJWK7uQnJFtitZfBUy+umjOiLQBYEkHNlxqk3liAERA2LY\noyf1E2vMbd1DC2jpC6jEwtKDCWA3XaIvD6CSwRWdydWlEiWDA8rycjgZAoGAZwtK\nVN618YM79p7cKRN1boEExdr0j096fhj3C5e4UPv6XQZFPogCAPUeNzE1xwzjmTA2\nrb9QH4xEo8k+LCg5ZUGt+zLknGNMQqYNoOLKmdq5U5FS8AyVyopU97hDqmdpjwcm\n3v6Qex2OzyKrZ+ED8jgSqE9bVudxgFAAAmfTam8CgYAySkdJa3g/gQEIXxApl1lO\n6fX+jb+JEymSAdZoOEpnZkmDSRdiFTYYotIzsg/fW/RkxjfUOj3adVvhqhynAVKv\ndoWwEiVVBGjrcrxf8BwmUhZll4upRJaBJr/Hlxd/4MAQwAErf2hKiY+iPuXj+jLw\nIogNvjsJoe+9gCtjFoztMQ==\n-----END PRIVATE KEY-----\n",
+  "client_email": "stackdriver-monitoring-author@typeworld2.iam.gserviceaccount.com",
+  "client_id": "115235894886310904744",
+  "auth_uri": "https://accounts.google.com/o/oauth2/auth",
+  "token_uri": "https://oauth2.googleapis.com/token",
+  "auth_provider_x509_cert_url": "https://www.googleapis.com/oauth2/v1/certs",
+  "client_x509_cert_url": "https://www.googleapis.com/robot/v1/metadata/x509/stackdriver-monitoring-author%40typeworld2.iam.gserviceaccount.com"
+}

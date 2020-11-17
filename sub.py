@@ -8,8 +8,16 @@ socket = ctx.socket(zmq.SUB)
 
 groupname = "test"
 
-socket.connect(f"tcp://{sys.argv[-1]}:5556")
 socket.setsockopt(zmq.SUBSCRIBE, groupname.encode("ascii"))
+
+# https://github.com/zeromq/libzmq/issues/2882
+socket.setsockopt(zmq.TCP_KEEPALIVE, 1)
+socket.setsockopt(zmq.TCP_KEEPALIVE_CNT, 10)
+socket.setsockopt(zmq.TCP_KEEPALIVE_IDLE, 1)
+socket.setsockopt(zmq.TCP_KEEPALIVE_INTVL, 1)
+
+
+socket.connect(f"tcp://{sys.argv[-1]}:5556")
 # socket.subscribe("light")
 
 while True:
