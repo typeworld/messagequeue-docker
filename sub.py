@@ -8,13 +8,14 @@ socket = ctx.socket(zmq.SUB)
 
 groupname = "test"
 
-socket.setsockopt(zmq.SUBSCRIBE, groupname.encode("ascii"))
+socket.setsockopt(zmq.SUBSCRIBE, "test1".encode("ascii"))
+socket.setsockopt(zmq.SUBSCRIBE, "test2".encode("ascii"))
 
 # https://github.com/zeromq/libzmq/issues/2882
 socket.setsockopt(zmq.TCP_KEEPALIVE, 1)
 socket.setsockopt(zmq.TCP_KEEPALIVE_CNT, 10)
-socket.setsockopt(zmq.TCP_KEEPALIVE_IDLE, 1)
-socket.setsockopt(zmq.TCP_KEEPALIVE_INTVL, 1)
+socket.setsockopt(zmq.TCP_KEEPALIVE_IDLE, 30)
+socket.setsockopt(zmq.TCP_KEEPALIVE_INTVL, 30)
 
 
 socket.connect(f"tcp://{sys.argv[-1]}:5556")
@@ -22,14 +23,8 @@ socket.connect(f"tcp://{sys.argv[-1]}:5556")
 
 while True:
     time.sleep(0.1)
-    try:
-        topic, msg = socket.recv_multipart()
-        # msg = socket.recv_string()
-    except zmq.Again:
-        print(".")
-        continue
-    print("Received %s:%s" % (topic, msg))
-    # print("Received %s" % (msg))
+    topic, msg = socket.recv_multipart()
+    print("Received %s:%s" % (topic.decode(), msg.decode()))
 
 dish.close()
 ctx.term()
