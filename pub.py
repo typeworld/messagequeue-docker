@@ -1,6 +1,7 @@
 import os
 import json
 import zmq
+import logging
 
 # ZMQ
 ctx = zmq.Context.instance()
@@ -11,6 +12,7 @@ socket.bind("tcp://0.0.0.0:5556")
 def send(topic, message):
     topic = str(topic)
     message = str(message)
+    logging.warning(f"sending {topic}: {message}")
     socket.send_multipart([topic.encode("ascii"), message.encode("ascii")])
 
 
@@ -43,8 +45,24 @@ def publish():
     if not g.form.get("apiKey") == os.getenv("APIKEY"):
         return abort(401)
 
+    if not g.form.get("topic"):
+        return "topic parameter missing"
+
+    if not g.form.get("command"):
+        return "command parameter missing"
+
     # Send message
-    payload = {"command": "update", "lastUpdated": g.form.get("lastUpdated")}
+    payload = {
+        "command": g.form.get("command"),
+    }
+    # Optional
+    if g.form.get("serverTimestamp"):
+        payload["serverTimestamp"] = g.form.get("serverTimestamp")
+    if g.form.get("sourceAnonymousAppID"):
+        payload["sourceAnonymousAppID"] = g.form.get("sourceAnonymousAppID")
+    if g.form.get("delay"):
+        payload["delay"] = g.form.get("delay")
+
     send(g.form.get("topic"), json.dumps(payload))
 
     return "ok"
