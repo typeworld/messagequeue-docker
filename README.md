@@ -12,4 +12,4 @@ Reload Compute Engine: `gcloud compute instances update-container messagequeue`
 
 [Number of connections:](https://stackoverflow.com/a/31303917) `ulimit -n` 
 
-[Number of connections:](https://stackoverflow.com/a/31303917) `ulimit -n` 
+[Global limit:](https://askubuntu.com/questions/26985/what-is-a-safe-ulimit-ceiling/27268#27268) `cat /proc/sys/fs/file-max` 

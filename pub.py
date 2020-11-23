@@ -38,11 +38,18 @@ def before_request_webapp():
         g.form[key] = request.values.get(key)
 
 
+@app.route("/uptime", methods=["GET"])
+def uptime():
+    return "ok"
+
+
 @app.route("/publish", methods=["POST"])
 def publish():
 
     # Authorization
-    if not g.form.get("apiKey") == os.getenv("APIKEY"):
+    APIKEY = os.getenv("APIKEY").strip()
+    FORMAPIKEY = g.form.get("apiKey").strip()
+    if FORMAPIKEY != APIKEY:
         return abort(401)
 
     if not g.form.get("topic"):

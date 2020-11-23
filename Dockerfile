@@ -6,7 +6,7 @@ EXPOSE 5556
 EXPOSE 5556/udp
 
 RUN pip install flask gunicorn google-cloud-monitoring
-RUN apt-get update && apt-get install -y gcc python-dev iproute2 && pip install psutil
+RUN apt-get update && apt-get install -y gcc python3-dev iproute2 && pip install psutil
 
 COPY . /app
 WORKDIR /app
