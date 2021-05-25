@@ -3,6 +3,13 @@ import json
 import zmq
 import logging
 
+# Monitoring
+import psutil
+import subprocess
+
+# Flask app
+from flask import Flask, abort, g, request, jsonify
+
 # ZMQ
 ctx = zmq.Context.instance()
 socket = ctx.socket(zmq.PUB)
@@ -16,10 +23,8 @@ def send(topic, message):
     socket.send_multipart([topic.encode("ascii"), message.encode("ascii")])
 
 
-# Flask app
-from flask import Flask, abort, g, request
-
 app = Flask(__name__)
+
 
 # Prepare form data
 class Form(dict):
@@ -76,3 +81,43 @@ def publish():
     send(g.form.get("topic"), json.dumps(payload))
 
     return "ok"
+
+
+#
+# Monitoring
+#
+
+
+def find_procs_by_name(name):
+    "Return a list of processes matching 'name'."
+    ls = []
+    for p in psutil.process_iter(["name"]):
+        if p.info["name"] == name:
+            ls.append(p)
+    return ls
+
+
+def memory_usage_psutil(pid):
+    process = psutil.Process(pid)
+    mem = process.memory_full_info()[0] / float(2 ** 20)
+    return mem
+
+
+def tcpConnections():
+    return int(
+        subprocess.check_output("ss -s | awk 'NR==7 {print $2}'", shell=True)
+        .decode()
+        .strip()
+    )
+
+
+@app.route("/stats", methods=["GET"])
+def stats():
+    stats = {
+        "memoryGunicorn": sum(
+            [memory_usage_psutil(x.pid) for x in find_procs_by_name("gunicorn")]
+        ),
+        "usedMemoryPercentage": psutil.virtual_memory().percent,
+        "tcpConnections": tcpConnections(),
+    }
+    return jsonify(stats)
