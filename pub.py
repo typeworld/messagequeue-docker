@@ -47,9 +47,12 @@ def uptime():
 def publish():
 
     # Authorization
-    APIKEY = os.getenv("APIKEY").strip()
-    FORMAPIKEY = g.form.get("apiKey").strip()
-    if FORMAPIKEY != APIKEY:
+    if os.getenv("APIKEY") and g.form.get("apiKey"):
+        APIKEY = os.getenv("APIKEY").strip()
+        FORMAPIKEY = g.form.get("apiKey").strip()
+        if FORMAPIKEY != APIKEY:
+            return abort(401)
+    else:
         return abort(401)
 
     if not g.form.get("topic"):
