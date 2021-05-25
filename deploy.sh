@@ -73,3 +73,5 @@ if [ "$OLD_INSTANCE" != "null" ]; then
     gcloud compute instances stop ${OLD_INSTANCE} --zone ${GOOGLE_COMPUTE_ZONE}
     gcloud compute instances delete ${OLD_INSTANCE} --quiet --zone=${GOOGLE_COMPUTE_ZONE}
 fi
+
+echo "Done."
