@@ -6,6 +6,10 @@
 
 Build & upload to gcloud: `gcloud builds submit --tag gcr.io/typeworld2/messagequeue`
 
+# Attach docker output to SSH shell
+
+`docker attach $(echo $(docker container ls) | cut -d ' ' -f9)`
+
 Reload Compute Engine: `gcloud compute instances update-container messagequeue`
 
 # Limitations:
