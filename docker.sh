@@ -9,4 +9,4 @@ set -e
 docker build --tag messagequeue:1.0 .
 
 # Run
-docker run -p 80:80 -p 5556:5556/udp -p 5556:5556 -d --name messagequeue messagequeue:1.0
+docker run -p 80:80 -p 5556:5556/udp -p 5556:5556 -d -e APIKEY='___APIKEY___' --name messagequeue messagequeue:1.0 
