@@ -1,5 +1,5 @@
 # https://hub.docker.com/repository/docker/typeworld/pyzmq-draft
-FROM typeworld/pyzmq:1.0
+FROM typeworld/pyzmq:1.0.2
 
 EXPOSE 80
 EXPOSE 5556
