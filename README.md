@@ -10,6 +10,10 @@ Build & upload to gcloud: `gcloud builds submit --tag gcr.io/typeworld2/messageq
 
 `docker attach $(echo $(docker container ls) | cut -d ' ' -f9)`
 
+# Log into container:
+
+`docker exec -it $(echo $(docker container ls) | cut -d ' ' -f9) /bin/bash`
+
 Reload Compute Engine: `gcloud compute instances update-container messagequeue`
 
 # Limitations:
