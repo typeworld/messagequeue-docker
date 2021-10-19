@@ -18,10 +18,8 @@ Reload Compute Engine: `gcloud compute instances update-container messagequeue`
 
 # Limitations:
 
+After an actual measurement, the number of connections maxxed out at 65K, using 1912MB memory, or 294MB per 1K connections. Therefore, a machine with roughly 3GB memory should be used (ca. 600MB system base usage + 1912MB = 2512MB)
+
 [Number of connections:](https://stackoverflow.com/a/31303917) `ulimit -n` 
 
 [Global limit:](https://askubuntu.com/questions/26985/what-is-a-safe-ulimit-ceiling/27268#27268) `cat /proc/sys/fs/file-max` 
-
-ssh into docker:
-`sudo docker ps -a`
-`sudo docker exec -it 77a14e3cb2b4 bash`
