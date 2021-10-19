@@ -119,5 +119,6 @@ def stats():
         ),
         "usedMemoryPercentage": psutil.virtual_memory().percent,
         "tcpConnections": tcpConnections(),
+        "loadAverage": [x / psutil.cpu_count() for x in psutil.getloadavg()],
     }
     return jsonify(stats)
